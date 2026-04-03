@@ -1,0 +1,33 @@
+{
+  "appId": "com.yourname.momoflower",
+  "appName": "Momo Flower Puzzle",
+  "webDir": ".",
+  "bundledWebRuntime": false,
+  "plugins": {
+    "AdMob": {
+      "appId": {
+        "android": "ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX",
+        "ios":     "ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX"
+      }
+    },
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "backgroundColor": "#fffef8",
+      "showSpinner": false
+    },
+    "StatusBar": {
+      "style": "Light",
+      "backgroundColor": "#fffef8"
+    }
+  },
+  "ios": {
+    "contentInset": "always",
+    "scheme": "MomoFlower",
+    "backgroundColor": "#fffef8"
+  },
+  "android": {
+    "backgroundColor": "#fffef8",
+    "allowMixedContent": false,
+    "captureInput": true
+  }
+}
