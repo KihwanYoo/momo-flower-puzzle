@@ -36,6 +36,20 @@ jobs:
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
             --paths "/*"
 
+      - name: Update CloudFront default root object
+        run: |
+          ETAG=$(aws cloudfront get-distribution-config \
+            --id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --query "ETag" --output text)
+          aws cloudfront get-distribution-config \
+            --id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --query "DistributionConfig" > /tmp/cf-dist-config.json
+          sed -i 's/"DefaultRootObject": ".*"/"DefaultRootObject": "260404_momo_flower_puzzle.html"/' /tmp/cf-dist-config.json
+          aws cloudfront update-distribution \
+            --id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --distribution-config file:///tmp/cf-dist-config.json \
+            --if-match "$ETAG"
+
       - name: Print live URL
         run: |
           CF_DOMAIN=$(aws cloudfront get-distribution \
