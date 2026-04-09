@@ -1207,16 +1207,6 @@ function init(){
 }
 window.__beginGame = beginGame;
 init();
-</script><script>
-(function(){
-  try{
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    var ad = document.getElementById('adContainer');
-    if(ad){ ad.classList.add('show'); }
-  }catch(e){
-    console.log('ad init skipped', e);
-  }
-})();
 </script>
   <section class="panel ad-panel" id="adContainer">
   <div id="adLabel" style="padding:4px 10px 0;font-weight:900;color:#6d534d;font-size:12px;">광고</div>
@@ -1238,18 +1228,5 @@ init();
   <a href="./privacy-policy.html" style="color:#9a7f77;text-decoration:underline;">개인정보처리방침</a>
 </footer>
 
-<script>
-window.addEventListener('load', function(){
-  setTimeout(function(){
-    var ad = document.getElementById('adContainer');
-    if(!ad) return;
-    var ins = ad.querySelector('.adsbygoogle');
-    var filled = ins && ins.getAttribute('data-ad-status') === 'filled';
-    if(!filled){
-      ad.style.display = 'none';
-    }
-  }, 2500);
-});
-</script>
 </body>
 </html>
